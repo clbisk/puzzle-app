@@ -1,0 +1,30 @@
+<h1>The Infinite Puzzle Generator</h1>
+
+<br />
+
+<div class="centered">
+    <h3>Puzzle #{{id}}</h3>
+    <i class="fas fa-question-circle" title="How to Play" (click)="showHelp = !showHelp"></i>
+</div>
+
+<div *ngIf="showHelp" class="info-box bordered centered">
+    <app-hitori-rules *ngIf="puzzleType === 'Hitori'"></app-hitori-rules>
+    <app-heyawake-rules *ngIf="puzzleType === 'Heyawake'"></app-heyawake-rules>
+</div>
+
+<div class="puzzle-frame bordered centered">
+    <app-hitori *ngIf="puzzleType === 'Hitori'"></app-hitori>
+    <app-heyawake *ngIf="puzzleType === 'Heyawake'"></app-heyawake>
+</div>
+
+<div class="centered">
+    <div class="user-ratings">
+        <div>
+            Rate this puzzle: <ngb-rating [(rate)]="userRating" max="5"></ngb-rating>
+        </div>
+        <div>
+            Rate its difficulty: <ngb-rating [(rate)]="userDifficultyRating" max="5"></ngb-rating>
+        </div>
+        <button type="button" class="btn btn-outline-success" [disabled]="selectedSize === 'Select Size'">Submit</button>
+    </div>
+</div>

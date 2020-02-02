@@ -1,0 +1,28 @@
+$info-blue: rgb(38, 97, 97);
+$theme-light-gray: rgba(0,0,0,.125);
+$theme-border: thin solid $theme-light-gray;
+$puzzle-border: 2px solid black;
+
+.puzzle-cell {
+    width: 50px;
+    height: 50px;
+    border: $puzzle-border;
+    user-select: none;
+
+    div {
+        font-size: 40px;
+    }
+}
+
+.blackened-out {
+    background: black;
+}
+
+.circled {
+    background: url('./500px-Circle_-_black_simple.svg.png');
+    background-size: 47px;
+}
+
+.puzzle {
+    border: $puzzle-border; //makes the appearance of the border consistent for the outer boxes
+}
