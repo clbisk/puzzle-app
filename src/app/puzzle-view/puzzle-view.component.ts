@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PuzzleService } from '../puzzle.service';
 
 @Component({
   selector: 'app-puzzle-view',
@@ -15,7 +16,7 @@ export class PuzzleViewComponent implements OnInit {
   showHelp: boolean;
 
   private routeSubscription;
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private puzzleService: PuzzleService) { }
 
   ngOnInit() {
     //initialize user rating to 0
@@ -32,5 +33,10 @@ export class PuzzleViewComponent implements OnInit {
   ngOnDestroy() {
     //clean up clean up
     this.routeSubscription.unsubscribe();
+  }
+
+  ratePuzzle() {
+    console.log("yay");
+    this.puzzleService.putRatings(this.puzzleType, this.id, this.userRating, this.userDifficultyRating).subscribe();
   }
 }

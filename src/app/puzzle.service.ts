@@ -9,8 +9,12 @@ export class PuzzleService {
 
   constructor(private http: HttpClient) { }
 
-  getPuzzle(id: string) {
-    return this.http.get<Puzzle>(this.PUZZLE_URL + "Hitori/" + id);
+  getPuzzle(puzzleType: string, id: string) {
+    return this.http.get<Puzzle>(this.PUZZLE_URL + puzzleType + "/" + id);
+  }
+
+  putRatings(puzzleType: string, id: string, rating: number, difficultyRating: number) {
+    return this.http.post<Puzzle>(this.PUZZLE_URL + puzzleType + "/" + id, {"rating": rating, "difficultyRating": difficultyRating})
   }
 }
 

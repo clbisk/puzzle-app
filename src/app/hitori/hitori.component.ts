@@ -16,7 +16,7 @@ export class HitoriComponent implements OnInit {
   constructor(private puzzleService: PuzzleService) { }
 
   ngOnInit() {
-    this.puzzleService.getPuzzle(this.id).subscribe(puzzle => {
+    this.puzzleService.getPuzzle("Hitori", this.id).subscribe(puzzle => {
       this.puzzleData = JSON.parse(puzzle.data);
       this.correctSolution = JSON.parse(puzzle.solution);
 

@@ -25,6 +25,6 @@
         <div>
             Rate its difficulty: <ngb-rating [(rate)]="userDifficultyRating" max="5"></ngb-rating>
         </div>
-        <button type="button" class="btn btn-outline-success" [disabled]="selectedSize === 'Select Size'">Submit Rating</button>
+        <button type="button" class="btn btn-outline-success" [disabled]="!userRating || !userDifficultyRating" (click)="ratePuzzle()">Submit Rating</button>
     </div>
 </div>
