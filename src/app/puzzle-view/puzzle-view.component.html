@@ -13,7 +13,7 @@
 </div>
 
 <div class="puzzle-frame bordered centered">
-    <app-hitori *ngIf="puzzleType === 'Hitori'"></app-hitori>
+    <app-hitori *ngIf="puzzleType === 'Hitori'" [id]="id"></app-hitori>
     <app-heyawake *ngIf="puzzleType === 'Heyawake'"></app-heyawake>
 </div>
 
@@ -25,6 +25,6 @@
         <div>
             Rate its difficulty: <ngb-rating [(rate)]="userDifficultyRating" max="5"></ngb-rating>
         </div>
-        <button type="button" class="btn btn-outline-success" [disabled]="selectedSize === 'Select Size'">Submit</button>
+        <button type="button" class="btn btn-outline-success" [disabled]="selectedSize === 'Select Size'">Submit Rating</button>
     </div>
 </div>

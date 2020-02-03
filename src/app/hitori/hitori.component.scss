@@ -26,3 +26,9 @@ $puzzle-border: 2px solid black;
 .puzzle {
     border: $puzzle-border; //makes the appearance of the border consistent for the outer boxes
 }
+
+.correct {
+    background-color: greenyellow;
+    padding: 20px;
+    border: none;
+}

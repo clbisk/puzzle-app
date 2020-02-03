@@ -1,7 +1,7 @@
 <div class="vertically-centered">
     <div class="centered">
         <!-- puzzle grid -->
-        <div class="puzzle centered">
+        <div class="puzzle centered" [class.correct]="correct">
             <!-- puzzle rows -->
             <div *ngFor="let row of puzzleData; index as x" class="vertically-centered">
                 <!-- each column in a puzzle row -->
