@@ -14,7 +14,7 @@ import { HeyawakeRulesComponent } from './heyawake-rules/heyawake-rules.componen
 import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
-  { path: '', component: LandingPageComponent },
+  { path: 'puzzle-app', component: LandingPageComponent },
   { path: 'puzzle/:puzzle-type/:id', component: PuzzleViewComponent }
 ];
 
