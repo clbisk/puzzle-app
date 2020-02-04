@@ -11,7 +11,7 @@ export class PuzzleService {
   constructor(private http: HttpClient) { }
 
   getPuzzle(puzzleType: string, id: string) {
-    this.headers = new HttpHeaders().append('Access-Control-Allow-Origin', '*').append('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS').append('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
+    this.headers = new HttpHeaders().append('Access-Control-Allow-Origin', '*').append('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS').append('Access-Control-Allow-Headers', 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token');
     return this.http.get<Puzzle>(this.PUZZLE_URL + puzzleType + "/" + id, {"headers": this.headers});
   }
 
