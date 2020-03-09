@@ -17,7 +17,7 @@
     <app-heyawake *ngIf="puzzleType === 'Heyawake'"></app-heyawake>
 </div>
 
-<div class="centered">
+<div class="centered" *ngIf="!rated">
     <div class="user-ratings">
         <div>
             Rate this puzzle: <ngb-rating [(rate)]="userRating" max="5"></ngb-rating>
@@ -25,6 +25,8 @@
         <div>
             Rate its difficulty: <ngb-rating [(rate)]="userDifficultyRating" max="5"></ngb-rating>
         </div>
-        <button type="button" class="btn btn-outline-success" [disabled]="!userRating || !userDifficultyRating" (click)="ratePuzzle()">Submit Rating</button>
+        <button type="button" class="btn btn-outline-success" [disabled]="!userRating || !userDifficultyRating || rated" (click)="ratePuzzle()">Submit Rating</button>
     </div>
 </div>
+
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>

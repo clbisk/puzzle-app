@@ -12,6 +12,7 @@ import { HeyawakeComponent } from './heyawake/heyawake.component';
 import { HitoriRulesComponent } from './hitori-rules/hitori-rules.component';
 import { HeyawakeRulesComponent } from './heyawake-rules/heyawake-rules.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastsContainer } from './toast-manager/toasts-container.components';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     HitoriComponent,
     HeyawakeComponent,
     HitoriRulesComponent,
-    HeyawakeRulesComponent
+    HeyawakeRulesComponent,
+    ToastsContainer
   ],
   imports: [
     BrowserModule,
