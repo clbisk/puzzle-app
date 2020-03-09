@@ -4,9 +4,12 @@
   <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
     <button class="btn btn-outline-primary" ngbDropdownToggle>{{selectedSize}}</button>
     <div class="dropdown-menu" ngbDropdownMenu>
-      <button *ngFor="let size of puzzleSizes[puzzleType]" (click)="selectSize(size)" ngbDropdownItem>{{size}}</button>
+      <!-- <button *ngFor="let size of puzzleSizes[puzzleType]" (click)="selectSize(size)" ngbDropdownItem>{{size}}</button> -->
+      <button *ngFor="let size of puzzleSizes[puzzleType]" (click)="selectSize(size)" [disabled]="!sizeAvailable(size)" ngbDropdownItem>{{size}}</button>
     </div>
   </div>
-  <button type="button" class="btn btn-outline-success" [disabled]="selectedSize === 'Select Size'"
+  <button *ngIf="puzzleType === Hitori" type="button" class="btn btn-outline-success" [disabled]="selectedSize === 'Select Size'"
+    routerLink="/puzzle/{{puzzleType}}/sizeInt" routerLinkActive="active">Get Puzzle!</button>
+  <button *ngIf="puzzleType === Heyawake" type="button" class="btn btn-outline-success" [disabled]="selectedSize === 'Select Size'"
     routerLink="/puzzle/{{puzzleType}}/0000" routerLinkActive="active">Get Puzzle!</button>
 </div>

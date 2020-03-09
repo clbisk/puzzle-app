@@ -10,6 +10,7 @@ export class PuzzleSizeSelectorComponent implements OnInit {
 
   @Input() puzzleType: string;
   selectedSize: string;
+  sizeInt: number;
   constructor() {
     this.puzzleSizes = puzzleSizes;
   }
@@ -27,10 +28,21 @@ export class PuzzleSizeSelectorComponent implements OnInit {
 
   selectSize(size: string) {
     this.selectedSize = size;
+    this.sizeInt = +size.split("x")[0]
+  }
+
+  sizeAvailable(size: string) {
+    this.puzzleType === "Hitori" && availablePuzzleSizes.Hitori.find(s => s === size);
+    this.puzzleType === "Heyawake" && availablePuzzleSizes.Heyawake.find(s => s === size);
   }
 }
 
 const puzzleSizes = {
   "Hitori": ["5x5", "6x6", "7x7", "8x8", "9x9"],
-  "Heyawake": ["9x9", "10x10", "11x11", "15x15"]
+  "Heyawake": ["6x6", "9x9", "10x10", "11x11", "15x15"]
+};
+
+const availablePuzzleSizes = {
+  "Hitori": ["5x5", "6x6", "7x7", "8x8", "9x9"],
+  "Heyawake": ["6x6"]
 };

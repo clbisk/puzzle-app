@@ -11,8 +11,11 @@ export class PuzzleService {
   constructor(private http: HttpClient) { }
 
   getPuzzle(puzzleType: string, id: string) {
-    // this.headers = new HttpHeaders().append('Access-Control-Allow-Origin', '*').append('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS').append('Access-Control-Allow-Headers', 'access-control-allow-origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token');
     return this.http.get<Puzzle>(this.PUZZLE_URL + puzzleType + "/" + id);
+  }
+
+  getPuzzleBySize(puzzleType: string, size: number) {
+    return this.http.get<Puzzle>(this.PUZZLE_URL + puzzleType + "/" + size);
   }
 
   putRatings(puzzleType: string, id: string, rating: number, difficultyRating: number) {
