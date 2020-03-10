@@ -3,9 +3,9 @@
         <!-- puzzle grid -->
         <div class="puzzle centered" [class.correct]="correct">
             <!-- puzzle rows -->
-            <div *ngFor="let row of puzzleData; index as x" class="vertically-centered">
+            <div *ngFor="let row of puzzleData; index as y" class="vertically-centered">
                 <!-- each column in a puzzle row -->
-                <div *ngFor="let n of row; index as y" class="puzzle-cell centered"
+                <div *ngFor="let n of row; index as x" class="puzzle-cell centered"
                     [class.blackened-out]="userSolution[y][x] !== null? !userSolution[y][x] : false"
                     [class.circled]="userSolution[y][x] !== null? userSolution[y][x] : false"
                     (click)="toggleCellColor(x, y)">
