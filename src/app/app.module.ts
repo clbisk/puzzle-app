@@ -16,7 +16,7 @@ import { ToastsContainer } from './toast-manager/toasts-container.components';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
-  { path: 'puzzle/:puzzle-type/:id', component: PuzzleViewComponent }
+  { path: 'puzzle/:puzzle-type/:size', component: PuzzleViewComponent }
 ];
 
 @NgModule({

@@ -8,8 +8,8 @@
       <button *ngFor="let size of puzzleSizes[puzzleType]" (click)="selectSize(size)" [disabled]="!sizeAvailable(size)" ngbDropdownItem>{{size}}</button>
     </div>
   </div>
-  <button *ngIf="puzzleType === Hitori" type="button" class="btn btn-outline-success" [disabled]="selectedSize === 'Select Size'"
-    routerLink="/puzzle/{{puzzleType}}/sizeInt" routerLinkActive="active">Get Puzzle!</button>
-  <button *ngIf="puzzleType === Heyawake" type="button" class="btn btn-outline-success" [disabled]="selectedSize === 'Select Size'"
+  <button type="button" *ngIf="puzzleType === 'Heyawake'" class="btn btn-outline-success" [disabled]="selectedSize === 'Select Size'"
     routerLink="/puzzle/{{puzzleType}}/0000" routerLinkActive="active">Get Puzzle!</button>
+  <button type="button" *ngIf="puzzleType === 'Hitori'" class="btn btn-outline-success" [disabled]="selectedSize === 'Select Size'"
+    routerLink="/puzzle/{{puzzleType}}/{{sizeInt}}" routerLinkActive="active">Get Puzzle!</button>
 </div>

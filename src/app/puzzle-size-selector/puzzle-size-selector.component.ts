@@ -32,17 +32,18 @@ export class PuzzleSizeSelectorComponent implements OnInit {
   }
 
   sizeAvailable(size: string) {
-    this.puzzleType === "Hitori" && availablePuzzleSizes.Hitori.find(s => s === size);
-    this.puzzleType === "Heyawake" && availablePuzzleSizes.Heyawake.find(s => s === size);
+    if (this.puzzleType === "Hitori")
+      return availablePuzzleSizes.Hitori.find(s => s === size);
+    return this.puzzleType === "Heyawake" && availablePuzzleSizes.Heyawake.find(s => s === size);
   }
 }
 
 const puzzleSizes = {
-  "Hitori": ["5x5", "6x6", "7x7", "8x8", "9x9"],
+  "Hitori": ["2x2", "3x3", "5x5", "6x6", "7x7", "8x8", "9x9"],
   "Heyawake": ["6x6", "9x9", "10x10", "11x11", "15x15"]
 };
 
 const availablePuzzleSizes = {
-  "Hitori": ["5x5", "6x6", "7x7", "8x8", "9x9"],
+  "Hitori": ["2x2", "3x3", "5x5", "8x8"],
   "Heyawake": ["6x6"]
 };

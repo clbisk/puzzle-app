@@ -11,20 +11,22 @@ export class HitoriComponent implements OnInit {
   correctSolution: Array<Array<boolean>>;
   userSolution: Array<Array<boolean | null>> = [];
   correct: boolean = false;
+  id: number;
 
-  @Input() id: string;
+  @Input() size: number;
   constructor(private puzzleService: PuzzleService) { }
 
   ngOnInit() {
-    this.puzzleService.getPuzzle("Hitori", this.id).subscribe(puzzle => {
+    console.log(this.size)
+    this.puzzleService.getPuzzleBySize("Hitori", this.size).subscribe(puzzle => {
+      this.id = JSON.parse(puzzle.id);
       this.puzzleData = JSON.parse(puzzle.data);
       this.correctSolution = JSON.parse(puzzle.solution);
 
       //initialize empty solution
-      const size = this.puzzleData.length;
-        for (let i = 0; i < size; i++) {
+      for (let i = 0; i < this.size; i++) {
         this.userSolution.push(new Array<boolean | null>());
-        for (let j = 0; j < size; j++) {
+        for (let j = 0; j < this.size; j++) {
           this.userSolution[i][j] = null;
         }
       }
