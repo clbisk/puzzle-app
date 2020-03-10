@@ -15,7 +15,7 @@ export class PuzzleService {
   }
 
   getPuzzleBySize(puzzleType: string, size: number) {
-    return this.http.get<Puzzle>(this.PUZZLE_URL + puzzleType + "/" + size);
+    return this.http.get<Puzzle>(this.PUZZLE_URL + puzzleType + "/size/" + size);
   }
 
   putRatings(puzzleType: string, id: string, rating: number, difficultyRating: number) {
@@ -26,7 +26,9 @@ export class PuzzleService {
 export interface Puzzle {
   id: string;
   data: string;
+  size: number;
   solution: string;
   ratings: Array<number>;
+  difficultyRatings: Array<number>;
 }
 

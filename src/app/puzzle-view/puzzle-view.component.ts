@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PuzzleService } from '../puzzle.service';
 import { ToastService } from '../toast-manager/toast-service';
@@ -38,6 +38,11 @@ export class PuzzleViewComponent implements OnInit {
   ngOnDestroy() {
     //clean up clean up
     this.routeSubscription.unsubscribe();
+  }
+
+  updateId(retrievedId: string) {
+    this.id = retrievedId;
+    console.log(this.id);
   }
 
   ratePuzzle() {

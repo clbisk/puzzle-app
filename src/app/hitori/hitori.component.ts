@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { PuzzleService } from '../puzzle.service';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-hitori',
@@ -11,15 +12,17 @@ export class HitoriComponent implements OnInit {
   correctSolution: Array<Array<boolean>>;
   userSolution: Array<Array<boolean | null>> = [];
   correct: boolean = false;
-  id: number;
+  id: string;
 
+  @Output() loadedPuzzle = new EventEmitter<string>();
   @Input() size: number;
   constructor(private puzzleService: PuzzleService) { }
 
   ngOnInit() {
     console.log(this.size)
     this.puzzleService.getPuzzleBySize("Hitori", this.size).subscribe(puzzle => {
-      this.id = JSON.parse(puzzle.id);
+      this.id = puzzle.id;
+      this.loadedPuzzle.emit(this.id);
       this.puzzleData = JSON.parse(puzzle.data);
       this.correctSolution = JSON.parse(puzzle.solution);
 
