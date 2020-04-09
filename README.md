@@ -1,5 +1,8 @@
 # PuzzleApp
 
+This is the front-end for a puzzle generation application (2020 Capstone project)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
 
