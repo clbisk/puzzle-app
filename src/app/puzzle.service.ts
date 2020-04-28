@@ -14,7 +14,7 @@ export class PuzzleService {
     return this.http.get<Puzzle>(this.PUZZLE_URL + puzzleType + "/" + id);
   }
 
-  getPuzzleBySize(puzzleType: string, size: number) {
+  getPuzzleBySize(puzzleType: string, size: string) {
     return this.http.get<Puzzle>(this.PUZZLE_URL + puzzleType + "/size/" + size);
   }
 

@@ -13,8 +13,8 @@
 </div>
 
 <div class="puzzle-frame bordered centered">
-    <app-hitori #hitori *ngIf="puzzleType === 'Hitori'" [size]="size" (loadedPuzzle)="updateId($event)"></app-hitori>
-    <app-heyawake *ngIf="puzzleType === 'Heyawake'"></app-heyawake>
+    <app-hitori #hitori *ngIf="puzzleType === 'Hitori'" [width]="width" [height]="height" (loadedPuzzle)="updateId($event)"></app-hitori>
+    <app-heyawake #heyawake *ngIf="puzzleType === 'Heyawake'" [width]="width" [height]="height" (loadedPuzzle)="updateId($event)"></app-heyawake>
 </div>
 
 <div class="centered" *ngIf="!rated">

@@ -7,10 +7,9 @@ import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 })
 export class PuzzleSizeSelectorComponent implements OnInit {
   puzzleSizes: { "Hitori": Array<string>, "Heyawake": Array<string> };
-
   @Input() puzzleType: string;
   selectedSize: string;
-  sizeInt: number;
+
   constructor() {
     this.puzzleSizes = puzzleSizes;
   }
@@ -28,7 +27,6 @@ export class PuzzleSizeSelectorComponent implements OnInit {
 
   selectSize(size: string) {
     this.selectedSize = size;
-    this.sizeInt = +size.split("x")[0]
   }
 
   sizeAvailable(size: string) {
@@ -39,11 +37,11 @@ export class PuzzleSizeSelectorComponent implements OnInit {
 }
 
 const puzzleSizes = {
-  "Hitori": ["2x2", "3x3", "5x5", "6x6", "7x7", "8x8", "9x9"],
-  "Heyawake": ["6x6", "9x9", "10x10", "11x11", "15x15"]
+  "Hitori": ["2x2", "2x3", "3x2", "3x3", "5x5", "6x6", "10x10"],
+  "Heyawake": ["5x5", "6x6", "7x7", "8x8"]
 };
 
 const availablePuzzleSizes = {
-  "Hitori": ["2x2", "3x3", "5x5", "8x8"],
-  "Heyawake": ["6x6"]
+  "Hitori": ["2x2", "2x3", "3x2", "3x3", "5x5", "6x6", "10x10"],
+  "Heyawake": ["5x5", "6x6", "7x7", "8x8"]
 };

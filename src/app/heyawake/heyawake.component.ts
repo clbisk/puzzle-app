@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { PuzzleService } from '../puzzle.service';
 
 @Component({
   selector: 'app-heyawake',
@@ -7,23 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeyawakeComponent implements OnInit {
   //puzzle data
-  size: number;
+  correctSolution: Array<Array<boolean>>;
+  userSolution: Array<Array<boolean | null>> = [];
   roomBoundaries: Array<Room> = [];
+  correct: boolean = false;
+  id: string;
   //transformations of puzzle data to make visual representation easier
   rightBoundaries: Array<[number, number]> = [];  //coords of cells that need a dark right side
   lowerBoundaries: Array<[number, number]> = [];  //coords of cells that need a dark bottom side
   leftBoundaries: Array<[number, number]> = [];  //coords of cells that need a dark left side
   upperBoundaries: Array<[number, number]> = [];  //coords of cells that need a dark top side
 
-  userSolution: Array<Array<boolean | null>> = [];
 
-  constructor() { }
+  @Output() loadedPuzzle = new EventEmitter<string>();
+  @Input() width: number;
+  @Input() height: number;
+  constructor(private puzzleService: PuzzleService) { }
 
   ngOnInit() {
-    this.size = 6;
-    for (let i = 0; i < this.size; i++) {
-      this.userSolution.push(new Array<boolean | null>(this.size));
-      for (let j = 0; j < this.size; j++) {
+    for (let i = 0; i < this.height; i++) {
+      this.userSolution.push(new Array<boolean | null>(this.width));
+      for (let j = 0; j < this.width; j++) {
         this.userSolution[i][j] = null;
       }
     }
@@ -55,12 +60,26 @@ export class HeyawakeComponent implements OnInit {
     });
   }
 
+  /**
+   * checks if the user solution is correct
+   */
+  check() {
+    if (JSON.stringify(this.userSolution) === JSON.stringify(this.correctSolution))
+      this.correct = true;
+    console.log(this.correct);
+    console.log(this.correctSolution);
+    console.log(this.userSolution);
+  }
+
   toggleCellColor(cellX, cellY) {
     const prev = this.userSolution[cellY][cellX];
     console.log(prev);
     this.userSolution[cellY][cellX] = prev === null? false: prev === false? true: null;
+
+    this.check();
   }
 
+  /** methods to make puzzle display smoothly **/
   cellHasRightBoundary(cellX, cellY) {
     return this.rightBoundaries.some(boundary => (boundary[0] === cellX) && (boundary[1] === cellY));
   }

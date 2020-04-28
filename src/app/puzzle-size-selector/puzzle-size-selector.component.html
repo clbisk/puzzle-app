@@ -9,7 +9,7 @@
     </div>
   </div>
   <button type="button" *ngIf="puzzleType === 'Heyawake'" class="btn btn-outline-success" [disabled]="selectedSize === 'Select Size'"
-    routerLink="/puzzle/{{puzzleType}}/0000" routerLinkActive="active">Get Puzzle!</button>
+    routerLink="/puzzle/{{puzzleType}}/{{selectedSize}}" routerLinkActive="active">Get Puzzle!</button>
   <button type="button" *ngIf="puzzleType === 'Hitori'" class="btn btn-outline-success" [disabled]="selectedSize === 'Select Size'"
-    routerLink="/puzzle/{{puzzleType}}/{{sizeInt}}" routerLinkActive="active">Get Puzzle!</button>
+    routerLink="/puzzle/{{puzzleType}}/{{selectedSize}}" routerLinkActive="active">Get Puzzle!</button>
 </div>

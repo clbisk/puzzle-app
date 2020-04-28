@@ -12,7 +12,9 @@ export class PuzzleViewComponent implements OnInit {
   selectedSize: string;
   puzzleType: string;
   id: string;
-  size: number;
+  size: string;
+  width: number;
+  height: number;
   userRating: number;
   userDifficultyRating: number;
   showHelp: boolean;
@@ -31,7 +33,9 @@ export class PuzzleViewComponent implements OnInit {
     //get the route params (from url)
     this.routeSubscription = this.route.params.subscribe(params => {
       this.puzzleType = params['puzzle-type'];
-      this.size = +params['size']
+      this.size = params['size'];
+      this.width = +this.size.split('x')[0];
+      this.height = +this.size.split('x')[1];
     });
   }
 
