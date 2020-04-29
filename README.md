@@ -2,6 +2,7 @@
 
 This is the front-end for a puzzle generation application (2020 Capstone project)
 
+Please make sure to navigate to `clbisk.github.io/puzzle-app/infinite` *without* a final slash
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
